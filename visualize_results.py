@@ -74,7 +74,7 @@ def plot_combined_auc_snr(xgb, knn, mlp, snr):
 
     ax1 = plt.gca()
     ax1.set_xscale("log")
-    ax1.set_xlabel("noise level (sigma)")
+    ax1.set_xlabel(r"noise intensity parameter ($\sigma$)")
     ax1.set_ylabel("AUC")
     ax1.tick_params(axis='y')
 
@@ -103,7 +103,6 @@ def plot_combined_auc_snr(xgb, knn, mlp, snr):
 
     ax1.legend(final_handles, final_labels, loc='lower left')
 
-    plt.title("AUC (XGB, MLP, KNN) and SNR vs. noise level (sigma)")
     plt.tight_layout()
     os.makedirs("results/plots", exist_ok=True)
     plt.savefig("results/plots/auc_snr_all_models_vs_sigma.png", dpi=300)

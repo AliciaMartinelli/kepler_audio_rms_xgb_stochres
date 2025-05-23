@@ -10,19 +10,22 @@ do
 
     SECONDS=0
 
-    echo "[1/5] data augmentation"
+    echo "[1/6] data augmentation"
     python data_aug.py $sigma
 
-    echo "[2/5] feature extraction (rms)"
+    echo "[2/6] feature extraction (rms)"
     python features_extractor.py $sigma
 
-    echo "[3/5] model training: xgboost"
+    echo "[3/6] model training: xgb"
     python train_XGB.py $sigma
 
-    echo "[4/5] model training: mlp"
+    echo "[4/6] model training: mlp"
     python train_MLP.py $sigma
 
-    echo "[5/5] snr calculation"
+    echo "[5/6] model training: knn"
+    python train_KNN.py $sigma
+
+    echo "[6/6] snr calculation"
     python calculate_snr.py $sigma
 
     duration=$SECONDS

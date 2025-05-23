@@ -11,7 +11,6 @@ from sklearn.metrics import (
 )
 from xgboost import XGBClassifier
 from sklearn.utils.class_weight import compute_class_weight
-import logging
 
 SEED = 42
 random.seed(SEED)
@@ -136,4 +135,4 @@ for run in range(50):
 
 df = pd.DataFrame(results)
 df.to_csv(RESULT_CSV, index=False)
-print(f"\nAlle Ergebnisse gespeichert in {RESULT_CSV}")
+print(f"\nAll results saved in {RESULT_CSV}")
